@@ -1,4 +1,4 @@
-onmygame-web
+onmygame-api
 ============
 
-The web side things of On My Gone
+The API side things of On My Gone
