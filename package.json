@@ -1,0 +1,25 @@
+{
+  "name": "OnMyGameAPI",
+  "version": "0.0.0",
+  "description": "On My Game Rest API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skpulla/onmygame-web.git"
+  },
+  "keywords": [
+    "health"
+  ],
+  "author": "Sudhi Pulla",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/skpulla/onmygame-web/issues"
+  },
+  "dependencies": {
+    "express": "~4.10.2",
+    "body-parser": "~1.0.1"
+  }
+}
