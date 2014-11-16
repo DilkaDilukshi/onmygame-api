@@ -71,7 +71,10 @@ router.route('/data/:user_id')
     		if (err) throw err;
     		res.json();
 		});
-//		res.json({message: queryString});
+
+ 		newrelic.addCustomParameter("dataValue", req.body.value)
+  		newrelic.addCustomParameter("dataType", req.body.type)
+
 	})
 
 	.get(function(req, res) {
