@@ -5,6 +5,17 @@
 var express    = require('express'); 		// call express
 var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
+
+// TODO: remove all of this stuff from a public repo
+var connection = mysql.createConnection({
+	host:"aa1035vuvzyhfst.cexydpoxrxls.us-east-1.rds.amazonaws.com",
+	user:"root",
+	password:"150kroad",
+	database:"omg"
+});
+
+connection.connect();
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -53,11 +64,22 @@ router.route('/settings/me')
 router.route('/data/:user_id')
 
 	.post(function(req, res){
-		res.json({message: "user data point saved"});
+		//console.log(req);
+   		console.log(req.body.type+":"+req.body.value);
+		connection.query('INSERT into points (userId, type, value) VALUES (?,?,?)',[req.params.user_id, req.body.type, req.body.value], function(err, rows, fields) {
+    		if (err) throw err;
+    		res.json();
+		});
+//		res.json({message: queryString});
 	})
 
 	.get(function(req, res) {
-		res.json({data:{mood : 9}});
+		var queryString = 'SELECT * from users where id='+req.params.user_id;
+
+		connection.query(queryString, function(err, rows, fields) {
+    		if (err) throw err;
+    		res.json(rows);
+		});
 	});
 
 // REGISTER OUR ROUTES -------------------------------
