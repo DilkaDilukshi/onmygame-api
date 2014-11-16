@@ -1,6 +1,6 @@
 // BASE SETUP
 // =============================================================================
-require('newrelic');	//new relic needs to be the first module to load
+var newrelic = require('newrelic');	//new relic needs to be the first module to load
 
 // call the packages we need
 var express    = require('express'); 		// call express
