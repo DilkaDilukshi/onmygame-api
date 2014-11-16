@@ -6,6 +6,7 @@ var express    = require('express'); 		// call express
 var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+require('newrelic');
 
 // TODO: remove all of this stuff from a public repo
 var connection = mysql.createConnection({
